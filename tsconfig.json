@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es2015",
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "esModuleInterop":true,
+        "lib": [ "DOM","esnext", "esnext.asynciterable" ]
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}

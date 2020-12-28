@@ -1,0 +1,45 @@
+{
+  "name": "react-axe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "npx webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xymzhs/react-axe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xymzhs/react-axe/issues"
+  },
+  "homepage": "https://github.com/xymzhs/react-axe#readme",
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "awesome-typescript-loader": "^5.2.1",
+    "classnames": "^2.2.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.3.0",
+    "html-webpack-plugin": "^4.5.0",
+    "prettier": "^2.2.1",
+    "source-map-loader": "^1.1.0",
+    "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.2.3",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-jss": "^10.5.0",
+    "react-router-dom": "^5.2.0"
+  }
+}
