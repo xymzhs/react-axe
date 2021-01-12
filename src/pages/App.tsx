@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import { useStoreContext } from '../store/context'
 import { Theme } from '../styles/types'
 import { createUseStyles, useTheme } from 'react-jss'
+
 const useStyles = createUseStyles<Theme>((theme) => ({
   app: {
     margin: {

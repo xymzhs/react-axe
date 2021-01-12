@@ -5,12 +5,8 @@ const httpHandler = {
 }
 const HTTP: ProxyConstructor = new Proxy(
   Object.create({
-    post: function (
-      url: RequestInfo,
-      body: BodyInit,
-      callback: (arg0: any) => any,
-    ) {
-      fetch(url, {
+    post: async function (url: RequestInfo, body: BodyInit) {
+      const res = await fetch(url, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -18,19 +14,17 @@ const HTTP: ProxyConstructor = new Proxy(
         },
         body: JSON.stringify(body),
       })
-        .then((res) => res.json())
-        .then((res) => callback(res))
+      return await res.json()
     },
-    get: function (url: RequestInfo, callback: (arg0: any) => any) {
-      fetch(url, {
+    get: async function (url: RequestInfo) {
+      const res = await fetch(url, {
         method: 'GET',
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
       })
-        .then((res) => res.json())
-        .then((res) => callback(res))
+      return await res.json()
     },
   }),
   httpHandler,
