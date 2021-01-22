@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
 import classnames from 'classnames'
-import { useStoreContext } from '../store/context'
 import { Theme } from '../styles/types'
+import { useRecoilState } from 'recoil'
+import { AppProps } from './types'
+import { textState } from '../store'
 import { createUseStyles, useTheme } from 'react-jss'
 
 const useStyles = createUseStyles<Theme>((theme) => ({
@@ -17,21 +19,22 @@ const useStyles = createUseStyles<Theme>((theme) => ({
   },
 }))
 
-export interface AppProps {}
-
 const App: React.FC<AppProps> = (props) => {
+  const [text, setText] = useRecoilState(textState)
+
+  const onChange = (event: {
+    target: { value: string | ((currVal: string) => string) }
+  }) => {
+    setText(event.target.value)
+  }
   const theme = useTheme()
   const classes = useStyles({ ...props, theme })
-  const { store, dispatch } = useStoreContext()
 
   return (
-    <div
-      className={classnames(classes.app)}
-      onClick={() => {
-        dispatch({ type: 'increment' })
-      }}
-    >
-      {store.count}
+    <div className={classnames(classes.app)}>
+      <input type="text" value={text} onChange={onChange} />
+      <br />
+      Echo: {text}
     </div>
   )
 }
